@@ -17,7 +17,6 @@ class TestCollectRemoveNonProgressive(SohTestBase):
         for item in items:
             self.assertFalse(self.multiworld.state.has(item, self.player), f"Should not have {item} before collecting it.")
 
-        list(map(lambda i: self.create_item(i), items))
         for size in range(1, len(items)):
             for combo in combinations(items, size):
                 self.collect_by_name(combo)
@@ -174,4 +173,3 @@ class TestCollectRemoveProgressiveAllOn(SohTestBase):
             self.assertFalse(has_item(first_rank, self.get_bundle())._instantiate(self.world)._evaluate(
                 self.multiworld.state),
                 f"Failed for {item_name}, we should not have {first_rank}")
-
